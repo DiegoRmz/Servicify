@@ -1,4 +1,5 @@
 <template>
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#" onclick="location.reload();"><img src="../assets/servicify.png" height="55px" width="auto"> </a>
 

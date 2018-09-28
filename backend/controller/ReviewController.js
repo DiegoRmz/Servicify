@@ -3,8 +3,8 @@ export class AdController{
         this.connectionPool = connectionPool;
     }
 
-    createAd(request,response){
-        const insertSql = "INSERT INTO Ad SET ?";
+    createReview(request,response){
+        const insertSql = "INSERT INTO review SET ?";
         const insertable = request.body;
 
         this.connectionPool.getConnection((err,conn)=>{
@@ -27,8 +27,10 @@ export class AdController{
         }); 
     }
 
-    getAds(request,response){
-        const getUserSql = "SELECT id,creationDate,header,desc,category,rating,location FROM Ad"
+    getReviewsForAd(request,response){
+        const getUserSql = "SELECT adId,Stars,Review,Date FROM review WHERE adId=?"
+        const params     = [request.params.emailadId];
+
         
         this.connectionPool.getConnection((err,conn)=>{
             if(err){
@@ -37,7 +39,7 @@ export class AdController{
                 response.status(500).send(errn.message);
             }
 
-            conn.query(getUserSql,(errn,rows)=>{
+            conn.query(getUserSql,params,(errn,rows)=>{
                 if(errn){
                     console.log(errn);
                     conn.release();

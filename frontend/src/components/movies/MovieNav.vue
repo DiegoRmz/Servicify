@@ -7,11 +7,17 @@
       </a>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item px-5">
       <a :class="{'nav-link':true, 'active': section==='backlog'}"
         href="#" @click.prevent="clicked('backlog')">
         Favorites
       </a>
+    </li>
+    <li class="nav-item">
+      <button type="button" class="btn">Sign Up</button>
+    </li>
+    <li class="nav-item px-3">
+      <button type="button" class="btn">Login</button>
     </li>
   </ul>
 </template>

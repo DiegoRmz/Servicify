@@ -1,5 +1,18 @@
 <template>
   <div class="movie-card">
+    <div class="card h-100">
+      <a href="#"><img class="card-img-top" @error="imageError = true" :src="workingImage" alt=""></a>
+
+      <div class="card-body">
+       <h4 class="card-title">
+         <a href="#">{{title}}</a>
+       </h4>
+       <!--<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>-->
+       <p class="card-text">{{description}}</p>
+      </div>
+     </div>
+
+  <!--
     <img class="card-img-top"
       @error="imageError = true"
       :src="workingImage">
@@ -7,7 +20,8 @@
     <img v-if="saved"
       class="movie-card-saved-icon" src="../../assets/heart.png">
 
-    <div class="movie-card-body">
+    <!-<div class="movie-card-body">-
+    <div class="card-body">
       <div class="text-container">
         <h4 class="card-title">{{title}}</h4>
         <p class="card-text">{{description}}</p>
@@ -23,8 +37,12 @@
         class="btn btn-danger save-btn">
         Remove from favs
       </a>
+    </div>-->
+    <img v-if="!saved"
+      class="movie-card-saved-icon" @click.prevent="saveMovie(movieObject)" src="../../assets/unheart.png">
 
-    </div>
+    <img v-else href="#"
+     class="movie-card-saved-icon" @click.prevent="removeSavedMovie(movieObject)" src="../../assets/heart.png">
   </div>
 </template>
 
@@ -104,7 +122,7 @@ export default {
   margin-top: 10px;
   margin-bottom: 10px;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
-  color: white;
+  color: black;
   position: relative;
   overflow: hidden;
 }

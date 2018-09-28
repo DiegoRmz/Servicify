@@ -30,7 +30,7 @@ export default {
 
   computed: {
     filterText () {
-      return this.selectedGenreName || 'Viewing all genres'
+      return this.selectedGenreName || 'Viewing All genres'
     },
     genres () {
       return this.$store.state.genres

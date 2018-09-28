@@ -28,7 +28,7 @@ export class AdController{
     }
 
     getReviewsForAd(request,response){
-        const getUserSql = "SELECT adId,Stars,Review,Date FROM review WHERE adId=?"
+        const getUserSql = "SELECT adId,Stars,Review,crDate FROM review WHERE adId=?"
         const params     = [request.params.emailadId];
 
         

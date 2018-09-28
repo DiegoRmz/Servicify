@@ -28,7 +28,7 @@ export class PaymentMethodController{
     }
 
     getPaymentMethodsForUser(request,response){
-        const getUserSql = "SELECT creditCardNumber,date,cvc,methodType FROM PaymentMethod where usermail=?"
+        const getUserSql = "SELECT creditCardNumber,dateCard,cvc,methodType FROM PaymentMethod where usermail=?"
         const params     = [request.params.usermail];
 
         this.connectionPool.getConnection((err,conn)=>{

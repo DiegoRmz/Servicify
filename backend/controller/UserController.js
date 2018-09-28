@@ -30,8 +30,8 @@ export class UserController{
 
     //Gets user info
     getUser(request, response){
-        const getUserSql = "SELECT email,name,birthday,city,state,country FROM User where email=? and password=?"
-        const params     = [request.params.email,request.params.password];
+        const getUserSql = "SELECT email,userName,birthday,city,estado,country FROM Users where email=? and passwd=?"
+        const params     = [request.email,request.password];
 
         this.connectionPool.getConnection((err,conn)=>{
             if(err){

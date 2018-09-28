@@ -1,4 +1,4 @@
-export class AdController{
+module.exports =  class AdController{
     constructor(connectionPool){
         this.connectionPool = connectionPool;
     }
@@ -10,19 +10,18 @@ export class AdController{
         this.connectionPool.getConnection((err,conn)=>{
             if(err){
                 console.log(err);
-                connnection.release();
                 response.status(500).send(err.message);
             }
 
             conn.query(insertSql,insertable,(errn,res)=>{
-                if(err){
+                if(errn){
                     console.log(errn);
-                    connnection.release();
+                    conn.release();
                     response.status(500).send(errn.message);
+                }else{
+                    conn.release();
+                    response.status(200).send('Thanks for your review!');
                 }
-
-                connnection.release();
-                response.status(200).send(res.insertId);
             })
         }); 
     }
@@ -45,9 +44,10 @@ export class AdController{
                     conn.release();
                     response.status(500).send(errn.message);
                 }
-
-                conn.release();
-                response.status(200).json(rows);
+                else{
+                    conn.release();
+                    response.status(200).json(rows);
+                }
             })
         })
     }

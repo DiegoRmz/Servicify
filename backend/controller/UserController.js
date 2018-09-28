@@ -1,4 +1,4 @@
-export class UserController{
+module.exports =  class UserController{
     constructor(connectionPool){
         this.connectionPool = connectionPool;
     }    
@@ -11,19 +11,18 @@ export class UserController{
         this.connectionPool.getConnection((err,conn)=>{
             if(err){
                 console.log(err);
-                connnection.release();
                 response.status(500).send(err.message);
             }
 
             conn.query(insertSql,insertable,(errn,res)=>{
-                if(err){
+                if(errn){
                     console.log(errn);
-                    connnection.release();
+                    conn.release();
                     response.status(500).send(errn.message);
-                }
-
-                connnection.release();
-                response.status(200).send(res.insertId);
+                }else{
+                    conn.release();
+                    response.status(200).send('User created successfuly');
+                }  
             })
         }); 
     }
@@ -46,9 +45,10 @@ export class UserController{
                     conn.release();
                     response.status(500).send(errn.message);
                 }
-
-                conn.release();
-                response.status(200).json(rows);
+                else{
+                    conn.release();
+                    response.status(200).json(rows);
+                }
             })
         })
     }

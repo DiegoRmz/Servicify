@@ -1,4 +1,4 @@
-export class PaymentMethodController{
+module.exports = class PaymentMethodController{
     constructor(connectionPool){
         this.connectionPool = connectionPool;
     }
@@ -10,19 +10,18 @@ export class PaymentMethodController{
         this.connectionPool.getConnection((err,conn)=>{
             if(err){
                 console.log(err);
-                connnection.release();
                 response.status(500).send(err.message);
             }
 
             conn.query(insertSql,insertable,(errn,res)=>{
-                if(err){
+                if(errn){
                     console.log(errn);
-                    connnection.release();
+                    conn.release();
                     response.status(500).send(errn.message);
+                }else{
+                    conn.release();
+                    response.status(200).send('Payment method created correctly');
                 }
-
-                connnection.release();
-                response.status(200).send(res.insertId);
             })
         }); 
     }
@@ -44,9 +43,10 @@ export class PaymentMethodController{
                     conn.release();
                     response.status(500).send(errn.message);
                 }
-
-                conn.release();
-                response.status(200).json(rows);
+                else{
+                    conn.release();
+                    response.status(200).json(rows);
+                }
             })
         })
     }

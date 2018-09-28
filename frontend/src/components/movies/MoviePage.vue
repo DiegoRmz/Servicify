@@ -35,14 +35,14 @@
 
 <script>
 import MovieCard from './MovieCard'
-import MovieNav from './MovieNav'
+//import MovieNav from './MovieNav'
 import Pagination from './Pagination'
 import MovieFilter from './MovieFilter'
 
 export default {
   components: {
     MovieCard,
-    MovieNav,
+    //MovieNav,
     Pagination,
     MovieFilter
   },

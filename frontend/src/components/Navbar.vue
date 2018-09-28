@@ -22,7 +22,7 @@ import NavbarLink from './NavbarLink'
 import MovieBar from './movies/MovieNav'
 export default {
   components: {
-    NavbarLink,
+    //NavbarLink,
     MovieBar
   },
   data () {

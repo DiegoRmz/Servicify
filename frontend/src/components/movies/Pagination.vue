@@ -1,6 +1,6 @@
 <template>
   <nav v-if="shouldShow">
-    <ul class="pagination justify-content-center">
+    <ul class="pagination pagination-lg justify-content-center">
 
       <!-- prev arrows -->
       <li :class="{'page-item':true, 'disabled': isAtFirstPage}">

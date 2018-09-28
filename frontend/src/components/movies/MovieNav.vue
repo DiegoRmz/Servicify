@@ -1,16 +1,16 @@
 <template>
-  <ul class="nav nav-tabs">
+  <ul class="navbar-nav">
     <li class="nav-item">
       <a :class="{'nav-link':true, 'active': section==='discover'}"
         href="#" @click.prevent="clicked('discover')">
-        Discover
+        Services
       </a>
     </li>
 
     <li class="nav-item">
       <a :class="{'nav-link':true, 'active': section==='backlog'}"
         href="#" @click.prevent="clicked('backlog')">
-        Backlog
+        Favorites
       </a>
     </li>
   </ul>

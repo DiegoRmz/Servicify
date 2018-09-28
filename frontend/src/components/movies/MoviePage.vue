@@ -1,11 +1,11 @@
 <template>
   <div>
-
+<!--
     <div class="container">
       <h2> Hello {{ message }} </h2>
     </div>
-
-    <movie-nav/>
+-->
+    <!--<movie-nav/>-->
 
     <div
     class="container">

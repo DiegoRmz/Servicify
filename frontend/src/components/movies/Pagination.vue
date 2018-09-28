@@ -1,6 +1,6 @@
 <template>
   <nav v-if="shouldShow">
-    <ul class="pagination">
+    <ul class="pagination pagination-lg justify-content-center">
 
       <!-- prev arrows -->
       <li :class="{'page-item':true, 'disabled': isAtFirstPage}">
@@ -36,7 +36,7 @@ export default {
   props: {
     maxNumberOfPages: {
       type: Number,
-      default: 7
+      default: 5
     }
   },
 

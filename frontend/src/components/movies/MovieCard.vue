@@ -5,7 +5,7 @@
       :src="workingImage">
 
     <img v-if="saved"
-      class="movie-card-saved-icon" src="../../assets/star.png">
+      class="movie-card-saved-icon" src="../../assets/heart.png">
 
     <div class="movie-card-body">
       <div class="text-container">
